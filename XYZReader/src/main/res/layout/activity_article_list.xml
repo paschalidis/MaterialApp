@@ -9,7 +9,8 @@
         android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="112dp"
-        android:background="#000000">
+        android:background="?colorPrimary"
+        tools:background="@color/indigo_500">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar_layout"
