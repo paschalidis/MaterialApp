@@ -1,5 +1,6 @@
 <com.example.xyzreader.ui.DrawInsetsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/draw_insets_frame_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -64,14 +65,16 @@
                         android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
                         android:textColor="#fff"
                         android:textSize="@dimen/detail_title_text_size"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="Second Variety"/>
 
                     <TextView
                         android:id="@+id/article_byline"
                         style="?android:attr/textAppearanceSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#8fff" />
+                        android:textColor="#8fff"
+                        tools:text="May 1, 1953 by Philip K. Dolck"/>
                 </LinearLayout>
 
                 <TextView
@@ -85,7 +88,8 @@
                     android:paddingBottom="@dimen/detail_body_bottom_margin"
                     android:textColor="@color/ltgray"
                     android:textColorLink="@color/a200"
-                    android:textSize="@dimen/detail_body_text_size" />
+                    android:textSize="@dimen/detail_body_text_size"
+                    tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad, amet aut beatae blanditiis debitis delectus deleniti dolorem eius enim facilis fuga incidunt ipsum laboriosam laudantium modi necessitatibus nemo quae quam, quo tempora ullam vel. Ad at ducimus eum exercitationem, facilis iure, modi nesciunt nulla officia porro quos temporibus tenetur?"/>
 
             </com.example.xyzreader.ui.MaxWidthLinearLayout>
         </FrameLayout>
