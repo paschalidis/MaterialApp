@@ -61,7 +61,6 @@ public class ArticleListActivity extends AppCompatActivity implements
 
         rosarioRegular = Typeface.createFromAsset(getAssets(), "Rosario-Regular.ttf");
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        ((CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout)).setTitle("Screen Title");
 
 
         final View toolbarContainerView = findViewById(R.id.toolbar_container);

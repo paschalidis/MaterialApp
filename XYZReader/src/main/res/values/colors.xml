@@ -24,8 +24,8 @@
     <color name="ltgray">#ffe0e0e0</color>
 
     <!-- Cyan 50 -->
-    <color name="indigo_300">#4DD0E1</color>
-    <color name="indigo_500">#00BCD4</color>
-    <color name="indigo_700">#0097A7</color>
-    <color name="a200">#18FFFF</color>
+    <color name="cyan_200">#80DEEA</color>
+    <color name="cyan_500">#00BCD4</color>
+    <color name="cyan_800">#00838F</color>
+    <color name="pink_a700">#C51162</color>
 </resources>

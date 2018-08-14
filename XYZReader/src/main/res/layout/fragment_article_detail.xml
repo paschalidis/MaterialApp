@@ -87,7 +87,7 @@
                     android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
                     android:paddingBottom="@dimen/detail_body_bottom_margin"
                     android:textColor="@color/ltgray"
-                    android:textColorLink="@color/a200"
+                    android:textColorLink="@color/pink_a700"
                     android:textSize="@dimen/detail_body_text_size"
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad, amet aut beatae blanditiis debitis delectus deleniti dolorem eius enim facilis fuga incidunt ipsum laboriosam laudantium modi necessitatibus nemo quae quam, quo tempora ullam vel. Ad at ducimus eum exercitationem, facilis iure, modi nesciunt nulla officia porro quos temporibus tenetur?"/>
 
