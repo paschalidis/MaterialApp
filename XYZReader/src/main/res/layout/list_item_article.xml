@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/article_title"
-            style="@style/TextAppearance.AppCompat.Title"
+            style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -43,7 +43,7 @@
 
         <TextView
             android:id="@+id/article_subtitle"
-            style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+            style="@style/TextAppearance.AppCompat.Small.Inverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -51,7 +51,7 @@
             android:paddingBottom="@dimen/list_item_text_subtitle_padding"
             android:paddingLeft="@dimen/list_item_text_subtitle_padding"
             android:paddingRight="@dimen/list_item_text_subtitle_padding"
-            android:textColor="@color/ltgray"
+            android:textColor="#8fff"
             tools:text="Feb 12,2004 \nby Cory Doctorow" />
     </LinearLayout>
 

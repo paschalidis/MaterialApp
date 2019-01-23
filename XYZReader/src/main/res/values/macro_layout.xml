@@ -9,7 +9,7 @@
     <integer name="list_column_count">2</integer>
 
     <!-- list item -->
-    <dimen name="list_item_margin">4dp</dimen>
+    <dimen name="list_item_margin">2dp</dimen>
     <dimen name="list_item_text_title_padding_bottom">4dp</dimen>
     <dimen name="list_item_text_title_padding">16dp</dimen>
     <dimen name="list_item_text_subtitle_padding">16dp</dimen>
