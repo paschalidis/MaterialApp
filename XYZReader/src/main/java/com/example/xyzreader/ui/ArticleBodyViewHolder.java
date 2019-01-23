@@ -21,6 +21,7 @@ public class ArticleBodyViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(String data){
+        data = data + "<br />";
         mTextView.setText(Html.fromHtml(data));
     }
 }
