@@ -10,9 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
+        <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <FrameLayout
                 android:id="@+id/photo_container"
@@ -39,8 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/detail_card_top_margin"
-                android:background="#fff"
+                android:background="#96ADFC"
                 android:elevation="2dp"
                 android:maxWidth="@dimen/detail_card_max_width"
                 android:orientation="vertical">
@@ -50,7 +50,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_marginBottom="@dimen/detail_metabar_vert_padding"
                     android:background="#333"
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/detail_metabar_vert_padding"
@@ -60,7 +59,7 @@
 
                     <TextView
                         android:id="@+id/article_title"
-                        style="?android:attr/textAppearanceLarge"
+                        style="?android:attr/textAppearanceMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
@@ -69,7 +68,7 @@
                         android:textColor="#fff"
                         android:textSize="@dimen/detail_title_text_size"
                         android:textStyle="bold"
-                        tools:text="Second Variety"/>
+                        tools:text="Ebooks, Neither E, Nor Books"/>
 
                     <TextView
                         android:id="@+id/article_byline"
@@ -82,13 +81,14 @@
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view_article_body"
+                    android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:itemCount="7"
                     tools:listitem="@layout/article_item_text"/>
 
             </com.example.xyzreader.ui.MaxWidthLinearLayout>
-        </FrameLayout>
+        </android.support.v7.widget.LinearLayoutCompat>
     </com.example.xyzreader.ui.ObservableScrollView>
 
     <!-- todo check stateListAnimator in FAB -->
