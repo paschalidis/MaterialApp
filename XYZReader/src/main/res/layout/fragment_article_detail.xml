@@ -1,34 +1,33 @@
-<com.example.xyzreader.ui.DrawInsetsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/draw_insets_frame_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.xyzreader.ui.ObservableScrollView
-        android:id="@+id/scrollview"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <android.support.v7.widget.LinearLayoutCompat
+        <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <FrameLayout
                 android:id="@+id/photo_container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/photo_placeholder">
+                android:layout_height="match_parent"
+                android:background="@color/photo_placeholder"
+                app:layout_collapseMode="pin">
                 <!--suppress AndroidLintContentDescription -->
                 <com.example.xyzreader.ui.ThreeTwoImageView
                     android:id="@+id/photo"
-                    android:transitionName="@string/transition_photo"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
+                    android:transitionName="@string/transition_photo"
                     tools:background="@drawable/ebooks"
-                    tools:src="@drawable/ebooks"/>
+                    tools:src="@drawable/ebooks" />
 
                 <View
                     android:layout_width="match_parent"
@@ -37,60 +36,72 @@
 
             </FrameLayout>
 
-            <com.example.xyzreader.ui.MaxWidthLinearLayout
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:layout_collapseMode="pin"
+                app:layout_scrollFlags="scroll|enterAlways" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <com.example.xyzreader.ui.MaxWidthLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#96ADFC"
+        android:elevation="2dp"
+        android:maxWidth="@dimen/detail_card_max_width"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/meta_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="#96ADFC"
-                android:elevation="2dp"
-                android:maxWidth="@dimen/detail_card_max_width"
-                android:orientation="vertical">
+                android:background="#333"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/detail_inner_horiz_margin"
+                android:paddingTop="@dimen/detail_metabar_vert_padding"
+                android:paddingRight="@dimen/detail_inner_horiz_margin"
+                android:paddingBottom="@dimen/detail_metabar_vert_padding">
 
-                <LinearLayout
-                    android:id="@+id/meta_bar"
+                <TextView
+                    android:id="@+id/article_title"
+                    style="?android:attr/textAppearanceMedium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:background="#333"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/detail_metabar_vert_padding"
-                    android:paddingLeft="@dimen/detail_inner_horiz_margin"
-                    android:paddingRight="@dimen/detail_inner_horiz_margin"
-                    android:paddingTop="@dimen/detail_metabar_vert_padding">
+                    android:fontFamily="sans-serif-condensed"
+                    android:lineSpacingMultiplier="0.9"
+                    android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/detail_title_text_size"
+                    android:textStyle="bold"
+                    tools:text="Ebooks, Neither E, Nor Books" />
 
-                    <TextView
-                        android:id="@+id/article_title"
-                        style="?android:attr/textAppearanceMedium"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:lineSpacingMultiplier="0.9"
-                        android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
-                        android:textColor="#fff"
-                        android:textSize="@dimen/detail_title_text_size"
-                        android:textStyle="bold"
-                        tools:text="Ebooks, Neither E, Nor Books"/>
+                <TextView
+                    android:id="@+id/article_byline"
+                    style="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#8fff"
+                    tools:text="May 1, 1953 by Philip K. Dolck" />
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
 
-                    <TextView
-                        android:id="@+id/article_byline"
-                        style="?android:attr/textAppearanceSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#8fff"
-                        tools:text="May 1, 1953 by Philip K. Dolck"/>
-                </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_article_body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            tools:itemCount="7"
+            tools:listitem="@layout/article_item_text" />
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler_view_article_body"
-                    android:layout_marginTop="8dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:itemCount="7"
-                    tools:listitem="@layout/article_item_text"/>
-
-            </com.example.xyzreader.ui.MaxWidthLinearLayout>
-        </android.support.v7.widget.LinearLayoutCompat>
-    </com.example.xyzreader.ui.ObservableScrollView>
+    </com.example.xyzreader.ui.MaxWidthLinearLayout>
 
     <!-- todo check stateListAnimator in FAB -->
     <android.support.design.widget.FloatingActionButton
@@ -106,4 +117,4 @@
         app:fabSize="normal"
         app:pressedTranslationZ="@dimen/fab_press_translation_z" />
 
-</com.example.xyzreader.ui.DrawInsetsFrameLayout>
+</android.support.design.widget.CoordinatorLayout>
