@@ -1,10 +1,10 @@
 package com.example.xyzreader.ui;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.LoaderManager;
+//import android.app.Fragment;
+//import android.app.LoaderManager;
 import android.content.Intent;
-import android.content.Loader;
+//import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -18,7 +18,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.app.ShareCompat;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.LinearLayoutManager;
@@ -269,7 +272,8 @@ public class ArticleDetailFragment extends Fragment implements
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        return ArticleLoader.newInstanceForItemId(getActivity(), mItemId);
+        ArticleLoader articleLoader = ArticleLoader.newInstanceForItemId(getActivity(), mItemId);
+        return articleLoader;
     }
 
     @Override
