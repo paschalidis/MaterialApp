@@ -19,9 +19,11 @@ import java.util.GregorianCalendar;
 
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
@@ -31,6 +33,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
@@ -120,8 +123,20 @@ public class ArticleDetailFragment extends Fragment implements
                              Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
 
+        AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
+        Toolbar toolbar = mRootView.findViewById(R.id.toolbar_detail);
+
+        appCompatActivity.setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
+
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
-        mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
+        //mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
@@ -192,9 +207,31 @@ public class ArticleDetailFragment extends Fragment implements
         bylineView.setTypeface(rosarioRegular);
 
         if (mCursor != null) {
-            mRootView.setAlpha(0);
+
+            ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
+                    .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
+                        @Override
+                        public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
+                            Bitmap bitmap = imageContainer.getBitmap();
+                            if (bitmap != null) {
+                                Palette p = Palette.generate(bitmap, 12);
+                                mMutedColor = p.getDarkMutedColor(0xFF333333);
+                                mPhotoView.setImageBitmap(imageContainer.getBitmap());
+                                mRootView.findViewById(R.id.meta_bar)
+                                        .setBackgroundColor(mMutedColor);
+                                updateStatusBar();
+                            }
+                        }
+
+                        @Override
+                        public void onErrorResponse(VolleyError volleyError) {
+
+                        }
+                    });
+
+            //mRootView.setAlpha(0);
             mRootView.setVisibility(View.VISIBLE);
-            mRootView.animate().alpha(1);
+            //mRootView.animate().alpha(1);
             titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
@@ -223,27 +260,6 @@ public class ArticleDetailFragment extends Fragment implements
             ArticleBodyAdapter articleBodyAdapter = new ArticleBodyAdapter(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />"));
             recyclerView.setAdapter(articleBodyAdapter);
 
-
-            ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
-                    .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
-                        @Override
-                        public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
-                            Bitmap bitmap = imageContainer.getBitmap();
-                            if (bitmap != null) {
-                                Palette p = Palette.generate(bitmap, 12);
-                                mMutedColor = p.getDarkMutedColor(0xFF333333);
-                                mPhotoView.setImageBitmap(imageContainer.getBitmap());
-                                mRootView.findViewById(R.id.meta_bar)
-                                        .setBackgroundColor(mMutedColor);
-                                updateStatusBar();
-                            }
-                        }
-
-                        @Override
-                        public void onErrorResponse(VolleyError volleyError) {
-
-                        }
-                    });
         } else {
             mRootView.setVisibility(View.GONE);
             titleView.setText("N/A");
