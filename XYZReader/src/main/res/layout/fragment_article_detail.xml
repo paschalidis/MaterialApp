@@ -12,7 +12,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.appTile.Visible"
+            app:expandedTitleTextAppearance="@style/TextAppearance.appTile.InVisible">
 
             <FrameLayout
                 android:id="@+id/photo_container"

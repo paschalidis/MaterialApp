@@ -31,4 +31,13 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <style name="TextAppearance.appTile.Visible" parent="android:TextAppearance">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextAppearance.appTile.InVisible" parent="android:TextAppearance">
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
+
+
 </resources>
