@@ -1,5 +1,4 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,7 +14,6 @@
         android:background="?colorAccent"
         android:orientation="vertical">
 
-        <!--suppress AndroidLintContentDescription -->
         <com.example.xyzreader.ui.DynamicHeightNetworkImageView
             android:id="@+id/thumbnail"
             android:transitionName="@string/transition_photo"
@@ -24,6 +22,7 @@
             android:background="@color/photo_placeholder"
             android:scaleType="centerCrop"
             tools:background="@drawable/ebooks"
+            android:contentDescription="@string/image_book_description"
             tools:src="@drawable/ebooks" />
 
         <TextView

@@ -30,6 +30,7 @@
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
                     android:transitionName="@string/transition_photo"
+                    android:contentDescription="@string/image_book_description"
                     tools:background="@drawable/ebooks"
                     tools:src="@drawable/ebooks" />
 

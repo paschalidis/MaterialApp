@@ -26,13 +26,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
+            android:contentDescription="@string/image_book_description"
             android:transitionName="@string/transition_photo"
             tools:background="@drawable/ebooks"
             tools:src="@drawable/ebooks"/>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:elevation="4dp"
+            android:elevation="@dimen/content_book_elevation"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/gutter_margin">
 
