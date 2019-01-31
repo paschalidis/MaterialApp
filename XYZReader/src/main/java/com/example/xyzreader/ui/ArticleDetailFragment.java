@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.ShareCompat;
@@ -68,6 +69,7 @@ public class ArticleDetailFragment extends Fragment implements
     private int mScrollY;
     private boolean mIsCard = false;
     private int mStatusBarFullOpacityBottom;
+    private FloatingActionButton mShareButton;
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss");
     // Use default locale format
@@ -142,16 +144,7 @@ public class ArticleDetailFragment extends Fragment implements
         //mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
-
-        mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
-                        .setType("text/plain")
-                        .setText("Some sample text")
-                        .getIntent(), getString(R.string.action_share)));
-            }
-        });
+        mShareButton = mRootView.findViewById(R.id.share_fab);
 
         bindViews();
         updateStatusBar();
@@ -256,11 +249,22 @@ public class ArticleDetailFragment extends Fragment implements
 
             }
 
+            mShareButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
+                            .setType("text/plain")
+                            .setText(mCursor.getString(ArticleLoader.Query.TITLE))
+                            .getIntent(), getString(R.string.action_share)));
+                }
+            });
+
             RecyclerView recyclerView = mRootView.findViewById(R.id.recycler_view_article_body);
             LinearLayoutManager layoutManager = new LinearLayoutManager(mRootView.getContext());
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setHasFixedSize(true);
-            ArticleBodyAdapter articleBodyAdapter = new ArticleBodyAdapter(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />"));
+            String bodyContent = mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />");
+            ArticleBodyAdapter articleBodyAdapter = new ArticleBodyAdapter(bodyContent);
             recyclerView.setAdapter(articleBodyAdapter);
 
         } else {
