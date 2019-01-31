@@ -39,5 +39,5 @@
 
     <!-- List Item -->
     <color name="list_item_book_title">#ffe0e0e0</color>
-    <color name="list_item_book_subtitle">#ffe0e0e0</color>
+    <color name="list_item_book_subtitle">#8fff</color>
 </resources>

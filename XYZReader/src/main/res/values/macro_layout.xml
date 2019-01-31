@@ -10,6 +10,8 @@
 
     <!-- list item -->
     <dimen name="list_item_margin">2dp</dimen>
+    <dimen name="gutter_margin">8dp</dimen>
+    <dimen name="gutter_margin_item">4dp</dimen>
     <dimen name="list_item_text_title_padding_bottom">4dp</dimen>
     <dimen name="list_item_text_title_padding">16dp</dimen>
     <dimen name="list_item_text_subtitle_padding">16dp</dimen>
