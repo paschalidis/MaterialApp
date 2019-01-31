@@ -18,14 +18,26 @@
 <resources>
     <color name="photo_placeholder">#ccc</color>
 
-    <color name="theme_primary">#04561A</color>
-    <color name="theme_primary_dark">#04561A</color>
-    <color name="theme_accent">#04561A</color>
-    <color name="ltgray">#ffe0e0e0</color>
-
     <!-- Cyan 50 -->
     <color name="cyan_200">#80DEEA</color>
     <color name="cyan_500">#00BCD4</color>
     <color name="cyan_800">#00838F</color>
     <color name="pink_a700">#C51162</color>
+
+    <!-- App Colors -->
+    <color name="primary_color_light">@color/cyan_200</color>
+    <color name="primary_color">@color/cyan_500</color>
+    <color name="primary_color_dark">@color/cyan_800</color>
+    <color name="accent_color">@color/pink_a700</color>
+
+    <!-- Content Text -->
+    <color name="text_content_background">#96ADFC</color>
+    <color name="text_book_title">#fff</color>
+    <color name="text_book_subtitle">#8fff</color>
+    <color name="text_content_color">#000000</color>
+    <color name="text_content_link_color">#fffff3</color>
+
+    <!-- List Item -->
+    <color name="list_item_book_title">#ffe0e0e0</color>
+    <color name="list_item_book_subtitle">#ffe0e0e0</color>
 </resources>

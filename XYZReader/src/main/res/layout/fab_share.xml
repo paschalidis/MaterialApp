@@ -9,4 +9,4 @@
     app:borderWidth="0dp"
     app:elevation="@dimen/fab_elevation"
     app:fabSize="normal"
-    app:pressedTranslationZ="@dimen/fab_press_translation_z"/>
+    app:pressedTranslationZ="@dimen/fab_press_translation_z" />

@@ -17,13 +17,13 @@
             android:baselineAligned="false"
             android:elevation="@dimen/app_bar_elevation"
             android:paddingLeft="@dimen/app_bar_side_padding"
-            android:paddingRight="@dimen/app_bar_side_padding"
-            tools:background="@color/cyan_500">
+            android:paddingRight="@dimen/app_bar_side_padding">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
+                android:scaleType="center"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/logo" />
 
@@ -46,7 +46,7 @@
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/cyan_200"
+                android:background="@color/primary_color_light"
                 android:clipToPadding="false"
                 android:paddingLeft="@dimen/list_side_margin"
                 android:paddingRight="@dimen/list_side_margin"

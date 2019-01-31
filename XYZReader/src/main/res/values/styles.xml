@@ -18,8 +18,8 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/cyan_500</item>
-        <item name="colorPrimaryDark">@color/cyan_800</item>
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/primary_color_dark</item>
         <item name="colorAccent">@color/pink_a700</item>
     </style>
 
